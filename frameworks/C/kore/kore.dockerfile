@@ -1,13 +1,10 @@
 FROM ubuntu:16.04
 
-COPY ./ ./kore
-
 # Install Kore dependencies
 RUN apt update && \
   apt install -yqq \
   # json-c deps
   libjson0-dev \
-  # git \
   # kore deps
   cmake curl libssl-dev
 
@@ -17,11 +14,7 @@ WORKDIR /kore-3.0.0
 RUN NOTLS=1 make
 RUN make install
 
+COPY ./ /kore
 WORKDIR /kore
-
-# Install json-c
-# RUN rm -rf json-c
-# RUN git clone https://github.com/json-c/json-c.git
-# RUN sed -i 's|#include "json_config.h"||' json-c/json_inttypes.h
 
 CMD ["kodev", "run"]
