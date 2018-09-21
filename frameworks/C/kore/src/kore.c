@@ -1,7 +1,9 @@
 #include <kore/kore.h>
 #include <kore/http.h>
 #include <time.h>
-#include <json-c/json.h>
+#include <json/json.h>
+
+// #include "../json-c/json.h"
 
 #define HELLO_RESPONSE   "Hello, World!"
 #define PLAINTEXT_HEADER "text/plain"

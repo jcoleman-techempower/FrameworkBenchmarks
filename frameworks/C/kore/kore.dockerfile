@@ -6,21 +6,10 @@ COPY ./ ./kore
 RUN apt update && \
   apt install -yqq \
   # json-c deps
-  autoconf automake git libtool \
+  libjson0-dev \
+  # git \
   # kore deps
   cmake curl libssl-dev
-
-# Install json-c
-WORKDIR /
-RUN git clone https://github.com/json-c/json-c.git
-WORKDIR /json-c
-RUN mkdir -p build
-WORKDIR /json-c/build
-RUN cmake -DBUILD_SHARED_LIBS=On ../
-RUN make
-RUN make install
-
-WORKDIR /
 
 # Install core
 RUN curl -sL https://kore.io/releases/kore-3.0.0.tar.gz | tar xz
@@ -29,5 +18,10 @@ RUN NOTLS=1 make
 RUN make install
 
 WORKDIR /kore
+
+# Install json-c
+# RUN rm -rf json-c
+# RUN git clone https://github.com/json-c/json-c.git
+# RUN sed -i 's|#include "json_config.h"||' json-c/json_inttypes.h
 
 CMD ["kodev", "run"]
