@@ -2,6 +2,7 @@
 #include <kore/http.h>
 #include <time.h>
 #include <json/json.h>
+#include <stdio.h>
 
 #define HELLO_RESPONSE "Hello, World!"
 #define PLAINTEXT_HEADER "text/plain"
