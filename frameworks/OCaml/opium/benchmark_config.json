@@ -1,0 +1,21 @@
+{
+  "framework": "opium",
+  "tests": [
+    {
+      "default": {
+        "plaintext_url": "/plaintext",
+        "port": 8080,
+        "approach": "Realistic",
+        "classification": "Micro",
+        "framework": "opium",
+        "language": "OCaml",
+        "os": "Linux",
+        "orm": "Full",
+        "database": "None",
+        "database_os": "Linux",
+        "display_name": "opium",
+        "versus": "OCaml"
+      }
+    }
+  ]
+}
